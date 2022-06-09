@@ -1,0 +1,526 @@
+ 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FoodAvenue</title>
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/fav.jpg" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/nivo-lightbox/nivo-lightbox.css">
+<link rel="stylesheet" type="text/css" href="css/nivo-lightbox/default.css">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<script type="text/javascript" src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_GfM0ntcTUeu8jH2ORYEx6");
+   })();
+</script>
+<style>
+.ba{
+float:right;   margin-top:-1.8%;padding:1.6% 2.6%
+}
+.br{
+float:right ; margin-top:-.7vw;padding:.6vw 1.5vw;
+}
+.bp{
+float:right;border-radius:50%;margin-right:6vw;margin-top:-.8vw;padding:.7vw 1.5vw
+}
+.bm{
+float:right;border-radius:50%;margin-right:2.5vw;margin-top:-.8vw;padding:.7vw 1.5vw
+}
+.sq{
+float:right;margin-right:2.5vw
+}
+.sp{
+margin-left:5vw;margin-right:1%
+}
+@media only screen and (max-width: 520px) {
+.br{font-size:2.5vw;margin-top:.3vw}
+.bp{font-size:2.5vw;margin-top:.3vw}
+.bm{font-size:2.5vw;margin-top:.3vw}
+#cart .mi{font-size:3vw;}
+}
+@media only screen and (max-width: 430px) {
+.ba{font-size:2.5vw;margin-top:.3vw}
+#restaurant-menu .mit{font-size:4vw;}
+}
+</style>
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation
+    ==========================================-->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top">
+  <div class="container"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand page-scroll" style="font-size:2.3vmax" href="#page-top">Hi <span id='clientName'></span></a> </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#cart" class="page-scroll">Proceed to checkout</a></li>
+		<li><a href="index.html"  class="page-scroll">go to home</a></li>
+        <li><a href="#" onclick='signOut()' class="page-scroll">Sign out</a></li>
+		
+      </ul>
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+</nav>
+
+<!-- Header -->
+
+<div id="restaurant-menu">
+  <div class="section-title text-center center">
+    <div class="overlay">
+      <h2>Menu</h2>
+      <hr>
+      <p>We’re better… We’re fresher… We’re tastier!</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="menu-section">
+          <h2 class="menu-section-title">Breakfast & Starters</h2>
+          <hr><br><br>
+		  
+          <div class="menu-item">
+            <div style="padding-bottom:4%"  class="menu-item-name mit"> bread omelette <button   id='a1' onclick ="add('bread omelette',30,'a1')"  class="btn btn-custom btn-lg ba" >Add to cart</button><span style="float:right;margin-right:6%">30/-</span></div>
+			
+          </div>
+		  
+          <div class="menu-item">
+            <div style="padding-bottom:4%" class="menu-item-name mit"> veg manchurian <button id='a2'  onclick ="add('veg manchurian',45,'a2')"   class="btn btn-custom btn-lg ba">Add to cart</button><span style="float:right;margin-right:6%">45/-</span></div>
+          </div>
+          <div class="menu-item">
+            <div style="padding-bottom:4%" class="menu-item-name mit"> aloo pakora <button id='a3'  onclick ="add('aloo pakora',40,'a3')"   class="btn btn-custom btn-lg ba">Add to cart</button><span style="float:right;margin-right:6%">40/-</span></div>
+            
+          </div>
+          <div class="menu-item">
+            <div style="padding-bottom:4%" class="menu-item-name mit">masala dosa <button id='a4'  onclick ="add('masala dosa',55,'a4')"   class="btn btn-custom btn-lg ba">Add to cart</button><span style="float:right;margin-right:6%">55/-</span></div>
+            
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="menu-section">
+          <h2 class="menu-section-title">Main Course</h2>
+          <hr><br><br>
+          <div class="menu-item">
+            <div style="padding-bottom:4%" class="menu-item-name mit"> veg thali <button id='b1'  onclick ="add('veg thali',70,'b1')"   class="btn btn-custom btn-lg ba">Add to cart</button><span style="float:right;margin-right:6%">70/-</span></div>
+            
+          </div>
+          <div class="menu-item">
+            <div style="padding-bottom:4%" class="menu-item-name mit"> paneer combo <button id='b2'  onclick ="add('paneer combo',90,'b2')"   class="btn btn-custom btn-lg ba">Add to cart</button><span style="float:right;margin-right:6%">90/-</span></div>
+            
+          </div>
+          <div class="menu-item">
+            <div style="padding-bottom:4%" class="menu-item-name mit"> chicken biryani <button id='b3'  onclick ="add('chicken biryani',110,'b3')"   class="btn btn-custom btn-lg ba">Add to cart</button><span style="float:right;margin-right:6%">110/-</span></div>
+            
+          </div>
+<div class="menu-item">
+            <div style="padding-bottom:4%" class="menu-item-name mit"> roti meal <button id='b4'  onclick ="add('roti meal',65,'b4')"   class="btn btn-custom btn-lg ba">Add to cart</button><span style="float:right;margin-right:6%">65/-</span></div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="menu-section">
+          <h2 class="menu-section-title">Dinner</h2>
+          <hr><br><br>
+          <div class="menu-item">
+            <div style="padding-bottom:4%" class="menu-item-name mit"> chole kulche <button id='c1'  onclick ="add('chole kulche',95,'c1')"   class="btn btn-custom btn-lg ba">Add to cart</button><span style="float:right;margin-right:6%">95/-</span></div>
+            
+          </div>
+          <div class="menu-item">
+            <div style="padding-bottom:4%" class="menu-item-name mit"> curd rice <button id='c2'  onclick ="add('curd rice',70,'c2')"   class="btn btn-custom btn-lg ba">Add to cart</button><span style="float:right;margin-right:6%">70/-</span></div>
+            
+          </div>
+         <div class="menu-item">
+            <div style="padding-bottom:4%" class="menu-item-name mit"> mutter paneer <button id='c3'  onclick ="add('mutter paneer',80,'c3')"   class="btn btn-custom btn-lg ba">Add to cart</button><span style="float:right;margin-right:6%">80/-</span></div>
+            
+          </div>
+          <div class="menu-item">
+            <div style="padding-bottom:4%" class="menu-item-name mit"> chicken kebab <button id='c4'  onclick ="add('chicken kebab',130,'c4')"   class="btn btn-custom btn-lg ba">Add to cart</button><span style="float:right;margin-right:6%">130/-</span></div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="menu-section">
+          <h2 class="menu-section-title">Coffee & Drinks</h2>
+          <hr><br><br>
+          <div class="menu-item">
+            <div style="padding-bottom:4%" class="menu-item-name mit"> cappuccino <button id='d1'  onclick ="add('cappuccino',45,'d1')"   class="btn btn-custom btn-lg ba">Add to cart</button><span style="float:right;margin-right:6%">45/-</span></div>
+            
+          </div>
+          <div class="menu-item">
+            <div style="padding-bottom:4%" class="menu-item-name mit"> green tea <button id='d2'  onclick ="add('green tea',30,'d2')"   class="btn btn-custom btn-lg ba">Add to cart</button><span style="float:right;margin-right:6%">30/-</span></div>
+            
+          </div>
+          <div class="menu-item">
+            <div style="padding-bottom:4%" class="menu-item-name mit"> cold coffee <button id='d3'  onclick ="add('cold coffee',20,'d3')"   class="btn btn-custom btn-lg ba">Add to cart</button><span style="float:right;margin-right:6%">20/-</span></div>
+            
+          </div>
+          <div class="menu-item">
+            <div style="padding-bottom:4%" class="menu-item-name mit"> ice tea <button id='d4'  onclick ="add('ice tea',20,'d4')"   class="btn btn-custom btn-lg ba">Add to cart</button><span style="float:right;margin-right:6%">20/-</span></div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="cart">
+  <div class="section-title text-center center">
+    <div class="overlay">
+      <h2>My cart</h2>
+      <hr>
+      <p> “Food so good… it’s addictive!”</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      
+        <div class="menu-section">
+          <h2 class="menu-section-title">Order Total : <span id='total'>0</span></h2>
+          <hr><br><br><br>
+          <div class="menu-item" id='crt'>
+		  <center><div class="menu-item-description" id='cie' style="font-size:170%"> Your cart is empty </div></center>
+           <div style="padding-bottom:2%;display:none" class="menu-item-name mit"> Paneer tikka<button    onclick ='add(34)'style=" float:right ; margin-top:-.7vw;padding:.6vw 1.5vw; "  class="btn btn-custom btn-lg as">Remove from cart</button><button class="btn btn-custom btn-lg as" style="float:right;border-radius:50%;margin-right:6vw;margin-top:-.8vw;padding:.7vw 1.5vw" onclick=''>+</button><span style="float:right;margin-right:2.5vw">3</span><button class="btn btn-custom btn-lg as" style="float:right;border-radius:50%;margin-right:2.5vw;margin-top:-.8vw;padding:.7vw 1.5vw" onclick=''>-</button><span style="margin-left:5vw">35/-</span></div>
+            
+          </div>
+
+        </div>
+      
+    </div>
+    
+  </div>
+</div>
+<div id="contact" class="text-center" style="display:none">
+  <div class="container">
+    <div class="section-title text-center">
+      <h2>Enter your details to receive your order</h2>
+      <hr>
+      <p>We don’t make it til you order it</p>
+    </div>
+    <div class="col-md-10 col-md-offset-1">
+      <form name="sentMessage" id="contactForm" onsubmit='send()' >
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" id="name"  class="form-control" pattern ="[A-Za-z]{2}[A-Za-z ]{1,}"  placeholder="Name" autocomplete='on' required>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="tel" id="ph" class="form-control" pattern="[789]{1}[0-9]{9}" placeholder="Contact no." autocomplete='on' required>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea  id="add" class="form-control" rows="4" pattern =".{5,}" placeholder="Address" autocomplete='on' required></textarea>
+          <p class="help-block text-danger"></p>
+        </div>
+        <div id="success" ></div>
+        <button  type='submit'  class="btn btn-custom btn-lg">Order now</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="footer">
+  <div class="container text-center">
+    <div class="col-md-4">
+      <h3>Address</h3>
+      <div class="contact-item">
+        <p>Opp. to Lava cakes , Kangyanaloor road</p>
+        <p>Vellore, T.N 632014</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3>Opening Hours</h3>
+      <div class="contact-item">
+        <p>Mon-Thurs: 09:00 AM - 10:00 PM</p>
+        <p>Fri-Sun: 09:00 AM - 11:00 PM</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3>Contact Info</h3>
+      <div class="contact-item">
+        <p>Phone: +91 - 94458 23716</p>
+        <p>Email: deepakkhairwal12@gmail.com</p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid text-center copyrights">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="social">
+        <ul>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+        </ul>
+      </div>
+      <p>&copy; <span id='dt'></span> FoodAvenue. All rights reserved. Developed by <a href="https://github.com/DEEPAK-KHAIRWAL" target="_blank" rel="nofollow" >Deepak Khairwal</a></p>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
+<script type="text/javascript" src="js/bootstrap.js"></script> 
+<script type="text/javascript" src="js/SmoothScroll.js"></script> 
+<script type="text/javascript" src="js/nivo-lightbox.js"></script> 
+<script type="text/javascript" src="js/jquery.isotope.js"></script> 
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
+<script type="text/javascript" src="js/contact_me.js"></script> 
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+
+<script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+<script>
+  var total=0,ord='',t=1,a=[0];
+  
+  var d=new Date;
+  document.getElementById('dt').innerHTML=d.getFullYear();
+  var config = {
+    apiKey: "AIzaSyBMooBd0yT_EJOSs4NRUgKx1nARk8XpzMY",
+    authDomain: "foodavenue-38cbf.firebaseapp.com",
+    databaseURL: "https://foodavenue-38cbf.firebaseio.com",
+    projectId: "foodavenue-38cbf",
+    storageBucket: "foodavenue-38cbf.appspot.com",
+    messagingSenderId: "8899906090"
+  };
+  firebase.initializeApp(config);
+  function login()
+  {
+    function newLoginHappened(user)
+    {
+	  if(user)
+	   {
+	     ml=user.email;
+	     document.getElementById('clientName').innerHTML=user.displayName;
+	   }
+	  else
+	   {
+	     var provider= new firebase.auth.GoogleAuthProvider();
+		 firebase.auth().signInWithRedirect(provider);
+	   }
+	}
+	firebase.auth().onAuthStateChanged(newLoginHappened);
+  }
+  window.onload=login;
+    function signOut() {
+    swal({
+          title: 'See you soon !',
+          text: 'You have been successfully signed out !',
+          icon: 'success'
+        }).then(function() {
+              firebase.auth().signOut().then(function () {
+	  window.location.href = 'index.html';
+    });
+        });
+	
+  }
+  function check (a)
+  {
+  for(var i=0;i<a.length;i++)
+  {
+    if(a[i]>0)
+	 return false;
+  }
+  return true;
+  }
+  
+  function remove(s,p,i,id)
+  {
+    document.getElementById(id).disabled=false;
+	document.getElementById(id).innerHTML='add to cart';
+    total-=p*a[i];
+	document.getElementById('total').innerHTML=total;
+	document.getElementById('_'+i).style.display='none';
+	document.getElementById('_'+i+'x').style.display='none';
+	document.getElementById('_'+i+'y').style.display='none';
+	a[i]=0;
+	if(check(a))
+	{
+	var cntnt =document.getElementById('crt');
+	while (cntnt.childNodes.length > 2) {
+    cntnt.removeChild(cntnt.lastChild);
+     }
+	document.getElementById('contact').style.display='none';
+	document.getElementById('cie').style.display='block';
+	ord='';
+	return;
+	}
+	var s1=ord.slice(ord.indexOf(s),ord.indexOf('>',ord.indexOf(s))+1);
+	ord=ord.replace(s1,'');
+  }
+  function inc(s,p,i)
+  {
+     if(a[i]==1)
+	{
+	 document.getElementById('_'+i+'m').disabled=false;
+	}
+    total+=p;
+	a[i]+=1;
+	document.getElementById('total').innerHTML=total;
+	document.getElementById('_'+i+'q').innerHTML=a[i];
+	var s1=ord.slice(ord.indexOf(s),ord.indexOf('>',ord.indexOf(s))+1);
+	ord=ord.replace(s1,'');
+	ord+=s+' '+'-'+' '+a[i]+'<br>';
+  }
+  
+  
+  function dec(s,p,i)
+  {
+    if(a[i]==1)
+	{
+	 document.getElementById('_'+i+'m').disabled=true;
+	 return;
+	}
+    total-=p;
+	a[i]-=1;
+	document.getElementById('total').innerHTML=total;
+	document.getElementById('_'+i+'q').innerHTML=a[i];
+	var s1=ord.slice(ord.indexOf(s),ord.indexOf('>',ord.indexOf(s))+1);
+	ord=ord.replace(s1,'');
+	ord+=s+' '+'-'+' '+a[i]+'<br>';
+  }
+  
+  
+  function add(s,p,id)
+  {
+    document.getElementById(id).disabled=true;
+	document.getElementById(id).innerHTML='added to cart';
+    total+=p;
+	document.getElementById('total').innerHTML=total;
+	document.getElementById('cie').style.display='none';
+	document.getElementById('contact').style.display='block';
+	var i=t;
+	var temp=document.createElement('div');
+	temp.id='_'+i;
+	temp.style.paddingBottom='2%';
+	temp.className='menu-item-name mi';
+	temp.innerHTML=s;
+	
+	a.push(1);
+	ord+=s+' '+'-'+' '+a[i]+'<br>';
+	var br=document.createElement('button');
+	br.onclick=function(){remove(s,p,i,id)};
+	br.className='btn btn-custom btn-lg br';
+	br.innerHTML='remove from cart';
+	
+	var bp=document.createElement('button');
+	bp.onclick=function(){inc(s,p,i)};
+	bp.className='btn btn-custom btn-lg bp';
+	bp.innerHTML='+';
+	
+	var sq=document.createElement('span');
+	sq.id='_'+i+'q';
+	sq.className='sq';
+	sq.innerHTML=a[i];
+	
+	
+	var bm=document.createElement('button');
+	bm.id='_'+i+'m';
+	bm.onclick=function(){dec(s,p,i)};
+	bm.className='btn btn-custom btn-lg bm';
+	bm.innerHTML='-';
+	
+	var sp=document.createElement('span');
+	sp.className='sp';
+	sp.innerHTML=p+'/-';
+	
+	
+	temp.appendChild(br);
+	temp.appendChild(bp);
+	temp.appendChild(sq);
+	temp.appendChild(bm);
+	temp.appendChild(sp);
+	
+	var x=document.createElement('br');
+	x.id='_'+i+'x';
+	var y=document.createElement('br');
+	y.id='_'+i+'y';
+	
+	document.getElementById('crt').appendChild(temp);
+	document.getElementById('crt').appendChild(x);
+	document.getElementById('crt').appendChild(y);
+	
+	t+=1;
+	
+  }
+  
+  document.querySelector('#contactForm').addEventListener('submit', function(e) {
+  var form = this;
+
+  e.preventDefault(); // <--- prevent form from submitting
+
+        swal({
+          title: 'Thank you !',
+          text: 'Your order has been placed successfully !',
+          icon: 'success'
+        }).then(function() {
+          form.submit(); // <--- submit form programmatically
+        });
+
+    
+});
+  
+  function send()
+  {
+  
+var fn="Name : "+document.getElementById('name').value+"<br><br>"+"Ph no. : "+document.getElementById('ph').value+"<br><br>"+"Address : "+document.getElementById('add').value+"<br><br>"+"Email : "+ml+"<br><br>" +"Order : "+"<br>"+ord+"<br>"+"Order total : "+total;
+var template_params = {
+   "reply_to": "Deepak khairwal",
+   "from_name": "FoodAvenue",
+   "to_name": "Rahul",
+   "message_html": fn
+}
+var service_id = "gmail";
+var template_id = "template_cwlhUUbm";
+emailjs.send(service_id,template_id,template_params);
+
+}
+  
+</script>
+</html>
